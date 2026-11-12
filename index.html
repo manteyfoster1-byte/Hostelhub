@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UCC Hostel Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">U</span><span>UCC <small>HOSTEL MANAGEMENT SYSTEM</small></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#hostels">Browse Hostels</a>
+      <a href="#how">How It Works</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-login" href="#account">Login</a>
+      <a class="nav-register" href="#account">Register</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">UNIVERSITY OF CAPE COAST</span>
+        <h1>Find a hostel that feels like <em>home.</em></h1>
+        <p>Explore student accommodation, compare rooms and send a booking request from one convenient place.</p>
+        <a class="primary-btn" href="#hostels">Explore hostels <span>→</span></a>
+      </div>
+      <div class="hero-note"><strong>Student accommodation</strong><span>Search • Compare • Book</span></div>
+    </section>
+
+    <section class="search-wrap" aria-label="Search hostels">
+      <div class="search-heading"><strong>Find your room</strong><span>Search available accommodation</span></div>
+      <label>Hostel or location<input id="searchInput" type="search" placeholder="e.g. Amamoma, Apewosika"></label>
+      <label>Room type<select id="roomFilter"><option value="all">All room types</option><option value="shared">Shared room</option><option value="private">Private room</option></select></label>
+      <button class="primary-btn search-btn" id="searchBtn">Search hostels</button>
+    </section>
+
+    <section class="section" id="hostels">
+      <div class="section-heading">
+        <div><span class="eyebrow">ACCOMMODATION</span><h2>Explore available hostels</h2><p>Room examples based on the accommodation photos provided.</p></div>
+        <span class="listing-count" id="listingCount">2 listings</span>
+      </div>
+
+      <div class="hostel-grid" id="hostelGrid">
+        <article class="hostel-card" data-name="campus shared hostel" data-location="amamoma" data-type="shared">
+          <div class="image-wrap"><img src="assets/shared-bunk-room.jpg" alt="Shared hostel room with bunk beds"><span class="image-tag">Shared room</span></div>
+          <div class="card-body">
+            <div class="card-title"><h3>Campus Shared Hostel</h3><span class="availability">Room example</span></div>
+            <p class="location">⌖ Amamoma, Cape Coast</p>
+            <p class="description">A shared sleeping space with bunk beds, individual sleeping areas and tiled flooring.</p>
+            <div class="features"><span> Bunk beds</span><span> Shared space</span><span> Student stay</span></div>
+            <div class="card-footer"><div><small>Room price</small><strong>Contact manager</strong></div><button class="outline-btn book-btn" data-hostel="Campus Shared Hostel">Request booking</button></div>
+          </div>
+        </article>
+
+        <article class="hostel-card" data-name="modern student residence" data-location="ape wosika" data-type="private">
+          <div class="image-wrap"><img src="assets/shared-bedroom.jpg" alt="Bright student bedroom with beds, desks and wardrobes"><span class="image-tag">Multi-bed room</span></div>
+          <div class="card-body">
+            <div class="card-title"><h3>Modern Student Residence</h3><span class="availability">Room example</span></div>
+            <p class="location">⌖ Apewosika, Cape Coast</p>
+            <p class="description">A bright furnished room with beds, study desks, wardrobes and large windows.</p>
+            <div class="features"><span> Study desks</span><span> Wardrobes</span><span> Furnished</span></div>
+            <div class="card-footer"><div><small>Room price</small><strong>Contact manager</strong></div><button class="outline-btn book-btn" data-hostel="Modern Student Residence">Request booking</button></div>
+          </div>
+        </article>
+      </div>
+      <p class="empty-state" id="emptyState" hidden>No matching hostels found. Try another search.</p>
+      <p class="demo-note">Demo content: these are sample listings using your supplied photos. Add verified hostel names, addresses, prices and availability before publishing.</p>
+    </section>
+
+    <section class="how-section" id="how">
+      <div class="section-heading"><div><span class="eyebrow">SIMPLE PROCESS</span><h2>How the system works</h2></div></div>
+      <div class="steps">
+        <div><b>01</b><h3>Create an account</h3><p>Register as a UCC student or hostel manager.</p></div>
+        <div><b>02</b><h3>Find accommodation</h3><p>Browse hostel photos, room types, facilities and prices.</p></div>
+        <div><b>03</b><h3>Request a room</h3><p>Send a booking request and follow its approval status.</p></div>
+      </div>
+    </section>
+
+    <section class="account-section" id="account">
+      <div><span class="eyebrow">GET STARTED</span><h2>Access your hostel account</h2><p>Choose the account type that matches your role.</p></div>
+      <div class="account-actions">
+        <button class="primary-btn" id="studentBtn">Student registration</button>
+        <button class="outline-btn" id="managerBtn">Hostel manager registration</button>
+        <a class="text-link" href="#account" id="loginLink">Already registered? Log in</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact"><div class="brand footer-brand"><span class="brand-mark">U</span><span>UCC <small>HOSTEL MANAGEMENT SYSTEM</small></span></div><p>Student accommodation information for the University of Cape Coast community.</p><small>© 2026 UCC Hostel Management System — Student project prototype.</small></footer>
+
+  <dialog id="accountDialog">
+    <form method="dialog" class="dialog-box">
+      <button class="close-dialog" aria-label="Close">×</button>
+      <span class="eyebrow" id="dialogEyebrow">ACCOUNT</span>
+      <h2 id="dialogTitle">Create an account</h2>
+      <p id="dialogDescription">Enter your details to continue.</p>
+      <label>Full name<input required type="text" placeholder="Your full name"></label>
+      <label>Email address<input required type="email" placeholder="name@example.com"></label>
+      <label id="studentIdLabel">Student ID<input type="text" placeholder="UCC student ID"></label>
+      <label>Password<input required type="password" minlength="8" placeholder="At least 8 characters"></label>
+      <button class="primary-btn" type="button" id="demoSubmit">Continue</button>
+      <small class="form-note">This is a front-end demonstration. Connect the form to PHP and MySQL to save accounts securely.</small>
+    </form>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
